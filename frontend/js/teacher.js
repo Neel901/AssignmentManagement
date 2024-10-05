@@ -42,6 +42,8 @@ document.getElementById('assignmentForm').addEventListener('submit', async funct
     }
 });
 window.onload = function() {
+    const today = new Date().toISOString().split('T')[0]; 
+    document.getElementById('dueDate').setAttribute('min', today);
     fetchSubmittedAssignments();
 };
 
@@ -79,4 +81,5 @@ function displaySubmittedAssignments(submissions) {
         row.insertCell(2).innerText = submissionDate;
         row.insertCell(3).innerText = submissionText;
     });
+    
 }
